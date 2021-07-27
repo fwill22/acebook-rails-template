@@ -37,7 +37,7 @@ and then run `bundle exec rspec` again
   
   ---------------------------------
   
-  AceBook Engineering Project
+## AceBook Engineering Project
 
 <details>
   <summary> Learning Objectives </summary>
@@ -101,3 +101,104 @@ Evaluate and implement some of the most popular libraries of code from the commu
 
 </details>
 
+<p>&nbsp;</p>
+
+## User Stories
+
+<details>
+  <summary>USER</summary>
+
+```
+As a user
+So I can join the community
+I would like to sign up
+
+As a user
+So I can go on my website
+I would like to login
+
+As a user
+So I can stay online
+I would like to logout
+
+As a user
+So people know what I look like
+I would like to add a profile picture to my account
+```
+</details>
+
+<details>
+  <summary>POSTS</summary>
+
+```
+As a user
+So I can be part of the app
+I would like to be able to create posts
+
+As a user
+So I can show my photography skills
+I would like to upload photos
+
+As a user
+So I can interact with others
+I would like to be able to leave comments on posts
+
+As a user
+So I can be identified
+I would like my avatar to appear on posts and comments I make
+
+As a user
+To show my support
+I would like to be able to add a like to posts and comments
+
+As a user
+I change my mind often
+I would like to remove a like I have given
+
+As a user
+To modify mistakes
+I would like to update my posts
+
+As a user
+To clean my profile
+I would like to delete my posts and comments
+
+As a user
+So I know when posts are created
+I would like to see a timestamp per post
+
+As a user
+So I am kept up to date
+I would like to see posts in reverse chronological order
+
+As a user
+So I know who create posts and comments
+I would like posts to link to the user who created the post
+
+As a user
+To show my friends interesting posts
+I would like to share posts
+```
+</details>
+
+<details>
+  <summary>PROFILE</summary>
+
+```
+As a user
+So I can show my individuality
+I would like to personalise the theme of my profile page
+
+As a user
+To add a bit of flare
+I would like to add a cover photo
+
+As a user
+So I know what posts I created
+I would like my posts to appear on my profile wall
+
+As a user
+As circumstances can change
+I would like to update my profile when needed
+```
+</details>
