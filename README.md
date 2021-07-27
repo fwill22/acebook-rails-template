@@ -124,6 +124,14 @@ I would like to logout
 As a user
 So people know what I look like
 I would like to add a profile picture to my account
+
+As a user
+So I don't get hacked
+I would like to logout
+
+As a user
+For ease of signing in 
+I would like to either github or gmail log in 
 ```
 </details>
 
