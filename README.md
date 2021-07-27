@@ -130,8 +130,8 @@ So I don't get hacked
 I would like to logout
 
 As a user
-For ease of signing in 
-I would like to either github or gmail log in 
+So I can sign up easily
+I would like to connect to Acebook using either my github or gmail 
 ```
 </details>
 
@@ -210,3 +210,17 @@ As circumstances can change
 I would like to update my profile when needed
 ```
 </details>
+
+### Process
+#### Design and Planning
+- Who is it for?
+
+- Wireframe mock ups
+
+- Deciding colour palette
+
+- Feature Ideation
+
+- Breaking user stories into tickets
+
+#### Approach
