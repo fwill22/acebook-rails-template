@@ -4,7 +4,13 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 <h1> WELCOME TO ACEBOOK </h1>
-
+<div>
+<% flash.each do |type, msg| %>
+  <div class="alert alert-<%= type %>">
+  <%= msg %>
+  </div>
+  <% end %>
+</div>
 <!-- Button trigger modal --->
 <div class="container">
   <button class="btn btn=primary btn-lg" href="#signup" data-toggle="modal" data-target=".log-sign">Log in / Register</button>
@@ -73,6 +79,8 @@
         <div class="tab-pane fade" id="signup">
           <%= form_with model: @user, class: "form-horizontal" do |user| %>
           <fieldset>
+          <!-- add falsh message-->
+          <%# <%= render 'shared/error_messages' %> %>
             <!-- text input signup-->
             <div class="group">
               <%= user.label :avatar, 'Upload Photo', class: 'label' %>
@@ -91,6 +99,13 @@
               <span class="highlight"></span>
               <span class="bar"></span>
               <%= user.label :email, 'Email', class: 'label' %>
+            </div>
+
+            <div class="group">
+              <%= user.date_field :dob, class: 'input', :required => true %>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <%= user.label :dob, 'Date of Birth', class: 'label' %>
             </div>
 
             <div class="group">
@@ -118,11 +133,7 @@
       </div>
     </div>
   </div>
-  <div class="modal-footer">
-    <center>
-      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-    </center>
-  </div>
+  
 
 </div>
 </div>
