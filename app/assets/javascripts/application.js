@@ -13,27 +13,33 @@
 //= require rails-ujs
 //= require_tree .
 
-$(window, document, undefined).ready(function() {
+  document.addEventListener("DOMContentLoaded", function(){
 
-  document.getElementByClassName("input").blur(function() {
-    let $this = this;
-    if ($this.value)
-      $this.classList.add("used");
-    else
-      $this.classList.remove("used");
-  });
-  
-  });
+    function classToggle() {
+      this.classList.toggle('tab1');
+      this.classList.toggle('tab2');
+    }
+    
+    document.querySelector('#form_tabs').addEventListener('click', classToggle);
 
+    document.querySelector('.input').blur(function () {
+      let input = document.querySelector(this)
+      if (input.value) {
+        input.classList.add('used')
+      } else {
+        input.removeClass('used')
+      }
+    })
 
-document.getElementById("tab1").on('click' , function(){
-    document.getElementById("tab1").classList.add("login-shadow");
-  document.getElementById("tab2").classList.remove("signup-shadow");
-});
+    document.getElementById("tab1").addEventListener('click', function(){
+      document.getElementById("tab1").classList.add("login-shadow")
+      document.getElementById("tab2").classList.remove("signup-shadow")
+    })
 
-document.getElementById("tab2").on('click' , function(){
-    document.getElementById("tab2").classList.add("signup-shadow");
-  document.getElementById("tab1").classList.remove("login-shadow");
+    document.getElementById("tab2").addEventListener("click", function(){
+      document.getElementById("tab2").classList.add("signup-shadow")
+      document.getElementById("tab1").classList.remove("login-shadow")
+    })
 
-
-});
+    
+  })

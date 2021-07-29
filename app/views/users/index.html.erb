@@ -1,155 +1,185 @@
-<h1> WELCOME TO ACEBOOK </h1>
+<h1>
+  WELCOME TO ACEBOOK
+</h1>
 
-<!-- Button trigger modal -->
+<!-- Button trigger modal --->
+<div class="container">
+  <button class="btn btn=primary btn-lg" href="#signup" data-toggle="modal" data-target=".log-sign">Log in / Register</button>
+</div>
 
-<div class="container"> 
-  <button class="btn btn-primary btn-lg" href="#signup" data-toggle="modal" data-target=".log-sign">Sign In/Register</button>
-  </div>
-
-<!-- Modal -->
-<%# button %>
-<div class="modal fade bs-modal-sm log-sign" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-sm">
+<!---Modal---->
+<!--button--->
+  <div class="modal fade bs-modal-sm log-sign" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+   <div class="modal-dialog modal-sm">
     <div class="modal-content">
-<%# tabs %>
-        <div class="bs-example bs-example-tabs">
-            <ul id="myTab" class="nav nav-tabs">
-              <li id="tab1" class=" active tab-style login-shadow "><a href="#signin" data-toggle="tab">Log In</a></li>
-              <li id="tab2" class=" tab-style "><a href="#signup" data-toggle="tab">Sign Up</a></li>
-              
-            </ul>
-        </div>
-<%# modal content %>
+      <!--tabs---->
+      <div class="form_tabs">
+        <!--changed name of div and used js function to toggle-->
+        <ul id="myTab" class="nav nav-tabs">
+          <li id="tab1" class=" active tab-style login-shadow ">
+            <a href="#signin" data-toggle="tab">Log In</a>
+          </li>
+          <li id="tab2" class=" tab-style ">
+            <a href="#signup" data-toggle="tab">Sign Up</a>
+          </li>
+        </ul>
+      </div>
+
+      <!--Modal Content---->
       <div class="modal-body">
         <div id="myTabContent" class="tab-content">
-        
-          <!-- Sign In Form -->
-  <div class="tab-pane fade active in" id="signin">
-    <div class="log-in-form">
-      <%= form_with class: "form-horizontal", model: @user do |user| %>
-      <fieldset>
-            <%#  ---- log in form text input---- %>              
-        <div class="group"> <!-- Email input-->
-          <%= user.label :email, 'Email address', class: 'label' %>
-          <%= user.email_field :email, class: 'input', :required => true %><span class="highlight"></span><span class="bar"></span>
-        </div>
-        <div class="group"> <!-- Password input-->
-          <%= user.label :password, 'Password', class: 'label' %>    
-          <%= user.password_field :password, class: 'input', :required => true %><span class="highlight"></span><span class="bar"></span>
-        </div>
-
-    <%# ------ Forgotten password link ----- %>
-        <div class="forgot-link">
-          <a href="#forgot" data-toggle="modal" data-target="#forgot-password"> I forgot my password</a>
-        </div>
-    
-      <!-- Log in Button -->
-    <div class="control-group">
-      <label class="control-label" for="signin"></label>
-      <div class="controls">
-        <%= user.submit "Log In", class: "btn btn-primary btn-block", id: "signin", name: "signin" %>   
-      </div>
-    </div>
-  </div>        
-      </fieldset>
-    <% end %>
-  </div>
-
-
-    <!-- Sign Up Form -->      
-        <div class="tab-pane fade" id="signup">
-      <%= form_with class: "form-horizontal",  model: @user do |user| %>
+          <!--Login form --->
+          <div class="tab-pane fade active in" id="signin">
+            <%= form_with model: @user, class: "form-horizontal" do |user| %>
             <fieldset>
 
-    <!-- Text input-->
-    <div class="group">
-      <%= user.label :avatar, 'Upload Photo', class: 'label' %>
-      <%= user.file_field :avatar, class: 'input' %>
-    </div>
+              <!--Login form text --->
+              <!-- Email input-->
+              <div class="group">
+                <%= user.email_field :email, class: 'input', :required => true %>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <%= user.label :email, 'Email address', class: 'label' %>
+              </div>
+              <!--password input--->
+              <div class="group">
+                <%= user.password_field :password, class: 'input', :required => true %>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <%= user.label :password, 'Password', class: 'label' %>
+              </div>
 
-  <div class="group">
-    <%= user.label :name, 'Name', class: 'label' %>
-    <%= user.text_field :name, class: 'input', :required => true %>
-    <span class="highlight"></span><span class="bar"></span>
-  </div>
+              <!---forgot link--->
+              <div class="forgot-link">
+                <a href="#forgot" data-toggle="modal" data-target="#forgot-password">I forgot my password</a>
+              </div>
 
-  <div class="group">
-    <%= user.label :email, 'Email', class: 'label' %>
-    <%= user.email_field :email, class: 'input', :required => true %>
-    <span class="highlight"></span><span class="bar"></span>
-  </div>
+              <!--button login --->
+              <div class="control-group">
+                <label class="control-label" for="signin"></label>
+                <div class="controls">
+                  <%= user.submit "Log In", class: "btn btn-primary btn-block", id: "signin", name: "signin" %>
+                </div>
+              </div>
 
-  <div class="group">
-    <%= user.label :dob, 'Date of Birth', class: 'label' %>
-    <%= user.date_field :dob, class: 'input', :required => true %>
-    <span class="highlight"></span><span class="bar"></span>
-  </div>
+            </fieldset>
+          <% end %>
+        </div>
 
-  <div class="group">
-    <%= user.label :password, 'Password', class: 'label' %>
-    <%= user.password_field :password, class: 'input', :required => true %>
-    <span class="highlight"></span><span class="bar"></span>
-  </div>
+        <!--- Sign up form --->
+        <div class="tab-pane fade" id="signup">
+          <%= form_with model: @user, class: "form-horizontal" do |user| %>
+          <fieldset>
+            <!-- text input signup-->
+            <div class="group">
+              <%= user.label :avatar, 'Upload Photo', class: 'label' %>
+              <%= user.file_field :avatar, class: 'input' %>
+            </div>
 
-  <div class="group">
-    <%= user.label :confirm_password, 'Confirm Password', class: 'label' %>
-    <%= user.password_field :confirm_password, class: 'input', :required => true %>
-    <span class="highlight"></span><span class="bar"></span>
-  </div>
-  
-  <!-- Button -->
-  <div class="control-group">
-    <label class="control-label" for="confirmsignup"></label>
-      <div class="controls">
-        <%= user.submit "Create Account", id: "confirmsignup", name: "confirmsignup", class: "btn btn-primary btn-block" %>
+            <div class="group">
+              <%= user.text_field :name, class: 'input', :required => true %>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <%= user.label :name, 'Name', class: 'label' %>
+            </div>
+
+            <div class="group">
+              <%= user.email_field :email, class: 'input', :required => true %>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <%= user.label :email, 'Email', class: 'label' %>
+            </div>
+
+            <div class="group">
+              <%= user.password_field :password, class: 'input', :required => true %>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <%= user.label :password, 'Password', class: 'label' %>
+            </div>
+
+            <div class="group">
+              <%= user.password_field :confirm_password, class: 'input', :required => true %>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <%= user.label :confirm_password, 'Confirm Password', class: 'label' %>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label" for="confirmsignup"></label>
+              <div class="controls">
+                <%= user.submit "Create Account", id: "confirmsignup", name: "confirmsignup", class: "btn btn-primary btn-block" %>
+              </div>
+            </div>
+          </fieldset>
+        <% end %>
       </div>
+    </div>
   </div>
-  </fieldset>
-  <% end %>
+  <div class="modal-footer">
+    <center>
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </center>
+  </div>
 
-   </div>
-    </div>
-      </div>
-      <div class="modal-footer">
-      <center>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </center>
-      </div>
-    </div>
-  </div>
 </div>
-  
-   
+</div>
+</div>
 
 <!--modal2 DELETE IF FORGOTTEN PASSWORD FUNCTIONALITY NOT ADDED-->
 
 <div class="modal fade bs-modal-sm" id="forgot-password" tabindex="0" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-        <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Password will be sent to your email</h4>
-      </div>
-      <div class="modal-body">
-        <form class="form-horizontal">
-        <fieldset>
+<div class="modal-dialog modal-sm">
+<div class="modal-content">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title" id="myModalLabel">Password will be sent to your email</h4>
+  </div>
+  <div class="modal-body">
+    <form class="form-horizontal">
+      <fieldset>
         <div class="group">
-<input required="" class="input" type="text"><span class="highlight"></span><span class="bar"></span>
-    <label class="label" for="date">Email address</label></div>
-        
-        
+          <input required="" class="input" type="text">
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label class="label" for="date">Email address</label>
+        </div>
+
         <div class="control-group">
-              <label class="control-label" for="forpassword"></label>
-              <div class="controls">
-                <button id="forpasswodr" name="forpassword" class="btn btn-primary btn-block">Send</button>
-              </div>
-            </div>
-          </fieldset>
-            </form>
-          
-      </div>
-    </div>
-    
+          <label class="control-label" for="forpassword"></label>
+          <div class="controls">
+            <button id="forpasswodr" name="forpassword" class="btn btn-primary btn-block">Send</button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+
   </div>
 </div>
+
+</div>
+</div>
 <%# ---------------------------------------------------------------------- %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+$(window, document, undefined).ready(function () {
+  $(".input").blur(function () {
+    var $this = $(this);
+    if ($this.val()) 
+      $this.addClass("used");
+    else 
+      $this.removeClass("used");
+    }
+  );
+});
+
+$("#tab1").on("click", function () {
+  $("#tab1").addClass("login-shadow");
+  $("#tab2").removeClass("signup-shadow");
+});
+
+$("#tab2").on("click", function () {
+  $("#tab2").addClass("signup-shadow");
+  $("#tab1").removeClass("login-shadow");
+});
+</script>
