@@ -1,2 +1,27 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<h1> WELCOME TO ACEBOOK </h1>
+
+<%#  ---- log in form ---- %>
+<div class="log-in-form">
+  <h1>Login</h1>
+  <%= form_with model: @user do |user| %>
+  <%= user.email_field :email, class: 'form_control', :required => true, placeholder: "Email" %>
+  <%= user.password_field :password, class: 'form_control', :required => true, placeholder: "Password" %>
+  <%= user.submit "Log In", class: 'form-button' %>
+  <% end %>
+</div>
+
+<%#  ---- sign up form ---- %>
+<div class="sign-up-form">
+  <h1>Sign Up</h1>
+  <%= form_with model: @user do |user| %>
+  <%= user.label :avatar, 'Upload Photo', class: 'form_control' %>
+  <%= user.file_field :avatar, class: 'form_control' %>
+  <%= user.text_field :name, class: 'form_control', :required => true, placeholder: "Name" %>
+  <%= user.email_field :email, class: 'form_control', :required => true, placeholder: "Email" %>
+  <%= user.date_field :dob, class: 'form_control', :required => true, placeholder: "Date of Birth" %>
+  <%= user.password_field :password, class: 'form_control', :required => true, placeholder: "Password" %>
+  <%= user.password_field :confirm_password, class: 'form_control', :required => true, placeholder: "Confirm Password" %>
+  
+  <%= user.submit "Create Account", class: 'form-button' %>
+  <% end %>
+</div>
