@@ -12,3 +12,28 @@
 //
 //= require rails-ujs
 //= require_tree .
+
+$(window, document, undefined).ready(function() {
+
+  document.getElementByClassName("input").blur(function() {
+    let $this = this;
+    if ($this.value)
+      $this.classList.add("used");
+    else
+      $this.classList.remove("used");
+  });
+  
+  });
+
+
+document.getElementById("tab1").on('click' , function(){
+    document.getElementById("tab1").classList.add("login-shadow");
+  document.getElementById("tab2").classList.remove("signup-shadow");
+});
+
+document.getElementById("tab2").on('click' , function(){
+    document.getElementById("tab2").classList.add("signup-shadow");
+  document.getElementById("tab1").classList.remove("login-shadow");
+
+
+});
