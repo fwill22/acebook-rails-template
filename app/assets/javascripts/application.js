@@ -14,33 +14,58 @@
 //= require jquery_ujs
 //= require_tree .
 
-  document.addEventListener("DOMContentLoaded", function(){
+  // document.addEventListener("DOMContentLoaded", function(){
 
-    function classToggle() {
-      this.classList.toggle('tab1');
-      this.classList.toggle('tab2');
-    }
+  //   function classToggle() {
+  //     this.classList.toggle('tab1');
+  //     this.classList.toggle('tab2');
+  //   }
+
+  //   document.querySelector('#form_tabs').addEventListener('click', classToggle);
+
+  //   document.querySelector('.input').blur(function () {
+  //     let input = document.querySelector(this)
+  //     if (input.value) {
+  //       input.classList.add('used')
+  //     } else {
+  //       input.removeClass('used')
+  //     }
+  //   })
+
+  //   document.getElementById("tab1").addEventListener('click', function(){
+  //     document.getElementById("tab1").classList.add("login-shadow")
+  //     document.getElementById("tab2").classList.remove("signup-shadow")
+  //   })
+
+  //   document.getElementById("tab2").addEventListener("click", function(){
+  //     document.getElementById("tab2").classList.add("signup-shadow")
+  //     document.getElementById("tab1").classList.remove("login-shadow")
+  //   })
+
     
-    document.querySelector('#form_tabs').addEventListener('click', classToggle);
+  // })
 
-    document.querySelector('.input').blur(function () {
-      let input = document.querySelector(this)
-      if (input.value) {
-        input.classList.add('used')
-      } else {
-        input.removeClass('used')
-      }
-    })
+  $(window, document, undefined).ready(function() {
 
-    document.getElementById("tab1").addEventListener('click', function(){
-      document.getElementById("tab1").classList.add("login-shadow")
-      document.getElementById("tab2").classList.remove("signup-shadow")
-    })
-
-    document.getElementById("tab2").addEventListener("click", function(){
-      document.getElementById("tab2").classList.add("signup-shadow")
-      document.getElementById("tab1").classList.remove("login-shadow")
-    })
-
+    $('.input').blur(function() {
+      var $this = $(this);
+      if ($this.val())
+        $this.addClass('used');
+      else
+        $this.removeClass('used');
+    });
     
-  })
+    });
+  
+  
+  $('#tab1').on('click' , function(){
+      $('#tab1').addClass('login-shadow');
+     $('#tab2').removeClass('signup-shadow');
+  });
+  
+  $('#tab2').on('click' , function(){
+      $('#tab2').addClass('signup-shadow');
+     $('#tab1').removeClass('login-shadow');
+  
+  
+  });

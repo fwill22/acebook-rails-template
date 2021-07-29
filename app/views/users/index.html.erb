@@ -13,7 +13,7 @@
    <div class="modal-dialog modal-sm">
     <div class="modal-content">
       <!--tabs---->
-      <div class="form_tabs">
+      <div class="bs-example bs-example-tabs">
         <!--changed name of div and used js function to toggle-->
         <ul id="myTab" class="nav nav-tabs">
           <li id="tab1" class=" active tab-style login-shadow ">
@@ -148,7 +148,7 @@
         <div class="control-group">
           <label class="control-label" for="forpassword"></label>
           <div class="controls">
-            <button id="forpasswodr" name="forpassword" class="btn btn-primary btn-block">Send</button>
+            <button id="forpassword" name="forpassword" class="btn btn-primary btn-block">Send</button>
           </div>
         </div>
       </fieldset>
@@ -160,26 +160,4 @@
 </div>
 </div>
 <%# ---------------------------------------------------------------------- %>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script>
-$(window, document, undefined).ready(function () {
-  $(".input").blur(function () {
-    var $this = $(this);
-    if ($this.val()) 
-      $this.addClass("used");
-    else 
-      $this.removeClass("used");
-    }
-  );
-});
 
-$("#tab1").on("click", function () {
-  $("#tab1").addClass("login-shadow");
-  $("#tab2").removeClass("signup-shadow");
-});
-
-$("#tab2").on("click", function () {
-  $("#tab2").addClass("signup-shadow");
-  $("#tab1").removeClass("login-shadow");
-});
-</script>
