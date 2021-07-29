@@ -24,25 +24,24 @@
         <div id="myTabContent" class="tab-content">
         
           <!-- Sign In Form -->
-        <div class="tab-pane fade active in" id="signin">
-            <form class="form-horizontal">
-            <fieldset>
+  <div class="tab-pane fade active in" id="signin">
+    <div class="log-in-form">
+      <%= form_with class: "form-horizontal", model: @user do |user| %>
+      <fieldset>
             <%#  ---- log in form text input---- %>              
-<div class="log-in-form">
-  <%= form_with model: @user do |user| %>
-    <div class="group"> <!-- Email input-->
-      <%= user.label :email, 'Email address', class: 'label' %>
-      <%= user.email_field :email, class: 'input', :required => true %><span class="highlight"></span><span class="bar"></span>
-    </div>
-    <div class="group"> <!-- Password input-->
-      <%= user.label :password, 'Password', class: 'label' %>    
-      <%= user.password_field :password, class: 'input', :required => true %><span class="highlight"></span><span class="bar"></span>
-    </div>
+        <div class="group"> <!-- Email input-->
+          <%= user.label :email, 'Email address', class: 'label' %>
+          <%= user.email_field :email, class: 'input', :required => true %><span class="highlight"></span><span class="bar"></span>
+        </div>
+        <div class="group"> <!-- Password input-->
+          <%= user.label :password, 'Password', class: 'label' %>    
+          <%= user.password_field :password, class: 'input', :required => true %><span class="highlight"></span><span class="bar"></span>
+        </div>
 
     <%# ------ Forgotten password link ----- %>
-           <div class="forgot-link">
-            <a href="#forgot" data-toggle="modal" data-target="#forgot-password"> I forgot my password</a>
-            </div>
+        <div class="forgot-link">
+          <a href="#forgot" data-toggle="modal" data-target="#forgot-password"> I forgot my password</a>
+        </div>
     
       <!-- Log in Button -->
     <div class="control-group">
@@ -55,60 +54,67 @@
       </fieldset>
     <% end %>
   </div>
-          
-          
+
+
+    <!-- Sign Up Form -->      
         <div class="tab-pane fade" id="signup">
-            <form class="form-horizontal">
+      <%= form_with class: "form-horizontal",  model: @user do |user| %>
             <fieldset>
 
+    <!-- Text input-->
+    <div class="group">
+      <%= user.label :avatar, 'Upload Photo', class: 'label' %>
+      <%= user.file_field :avatar, class: 'input' %>
+    </div>
 
+  <div class="group">
+    <%= user.label :name, 'Name', class: 'label' %>
+    <%= user.text_field :name, class: 'input', :required => true %>
+    <span class="highlight"></span><span class="bar"></span>
+  </div>
 
+  <div class="group">
+    <%= user.label :email, 'Email', class: 'label' %>
+    <%= user.email_field :email, class: 'input', :required => true %>
+    <span class="highlight"></span><span class="bar"></span>
+  </div>
 
-            <!-- Sign Up Form -->
-            <!-- Text input-->
-            <div class="group">
-<input required="" class="input" type="text"><span class="highlight"></span><span class="bar"></span>
-    <label class="label" for="date">First Name</label></div>
-            
-            <!-- Text input-->
-            <div class="group">
-<input required="" class="input" type="text"><span class="highlight"></span><span class="bar"></span>
-    <label class="label" for="date">Last Name</label></div>
-            
-            <!-- Password input-->
-            <div class="group">
-<input required="" class="input" type="text"><span class="highlight"></span><span class="bar"></span>
-    <label class="label" for="date">Email</label></div>
-            
-            <!-- Text input-->
-            <div class="group">
-<input required="" class="input" type="password"><span class="highlight"></span><span class="bar"></span>
-    <label class="label" for="date">Password</label></div>
-              <em>1-8 Characters</em>
-            
-              <div class="group2">
-<input required="" class="input" type="text"><span class="highlight"></span><span class="bar"></span>
-    <label class="label" for="date">Country</label></div>
-            
-            
-            
-            <!-- Button -->
-            <div class="control-group">
-              <label class="control-label" for="confirmsignup"></label>
-              <div class="controls">
-                <button id="confirmsignup" name="confirmsignup" class="btn btn-primary btn-block">Sign Up</button>
-              </div>
-            </div>
-            </fieldset>
-            </form>
+  <div class="group">
+    <%= user.label :dob, 'Date of Birth', class: 'label' %>
+    <%= user.date_field :dob, class: 'input', :required => true %>
+    <span class="highlight"></span><span class="bar"></span>
+  </div>
+
+  <div class="group">
+    <%= user.label :password, 'Password', class: 'label' %>
+    <%= user.password_field :password, class: 'input', :required => true %>
+    <span class="highlight"></span><span class="bar"></span>
+  </div>
+
+  <div class="group">
+    <%= user.label :confirm_password, 'Confirm Password', class: 'label' %>
+    <%= user.password_field :confirm_password, class: 'input', :required => true %>
+    <span class="highlight"></span><span class="bar"></span>
+  </div>
+  
+  <!-- Button -->
+  <div class="control-group">
+    <label class="control-label" for="confirmsignup"></label>
+      <div class="controls">
+        <%= user.submit "Create Account", id: "confirmsignup", name: "confirmsignup", class: "btn btn-primary btn-block" %>
       </div>
+  </div>
+  </fieldset>
+  <% end %>
+
+   </div>
     </div>
       </div>
-      <!--<div class="modal-footer">
+      <div class="modal-footer">
       <center>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </center>
-      </div>-->
+      </div>
     </div>
   </div>
 </div>
@@ -117,7 +123,7 @@
 
 <!--modal2 DELETE IF FORGOTTEN PASSWORD FUNCTIONALITY NOT ADDED-->
 
-<%# <div class="modal fade bs-modal-sm" id="forgot-password" tabindex="0" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+<div class="modal fade bs-modal-sm" id="forgot-password" tabindex="0" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
         <div class="modal-header">
@@ -145,23 +151,7 @@
     </div>
     
   </div>
-</div> %>
+</div>
 
 
 <%# ---------------------------------------------------------------------- %>
-
-<%#  ---- sign up form ---- %>
-<div class="sign-up-form">
-  <h1>Sign Up</h1>
-  <%= form_with model: @user do |user| %>
-  <%= user.label :avatar, 'Upload Photo', class: 'form_control' %>
-  <%= user.file_field :avatar, class: 'form_control' %>
-  <%= user.text_field :name, class: 'form_control', :required => true, placeholder: "Name" %>
-  <%= user.email_field :email, class: 'form_control', :required => true, placeholder: "Email" %>
-  <%= user.date_field :dob, class: 'form_control', :required => true, placeholder: "Date of Birth" %>
-  <%= user.password_field :password, class: 'form_control', :required => true, placeholder: "Password" %>
-  <%= user.password_field :confirm_password, class: 'form_control', :required => true, placeholder: "Confirm Password" %>
-  
-  <%= user.submit "Create Account", class: 'form-button' %>
-  <% end %>
-</div>
