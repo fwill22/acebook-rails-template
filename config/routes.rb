@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :messages
+  resources :rooms
+
+  get 'rooms/index'
   get 'sessions/new'
   get 'sessions/show'
   get 'sessions/create'
