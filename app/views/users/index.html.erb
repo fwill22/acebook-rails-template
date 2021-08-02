@@ -58,6 +58,11 @@
                 <%= user.label :password, 'Password', class: 'label' %>
               </div>
 
+              <%= user.label :remember_me, class: "checkbox inline" do %>
+              <%= user.check_box :remember_me %>
+              <span>Remember me</span>
+              <% end %>
+
               <!---forgot link--->
               <div class="forgot-link">
                 <a href="#forgot" data-toggle="modal" data-target="#forgot-password">I forgot my password</a>
