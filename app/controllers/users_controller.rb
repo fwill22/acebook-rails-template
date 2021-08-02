@@ -30,6 +30,7 @@ class UsersController < ApplicationController
         redirect_to "/users/#{current_user.id}"
     else
       redirect_to "/users/#{current_user.id}/edit"
+    end
   end
 
   # def user_posts
