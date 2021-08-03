@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "Registration", type: :feature do
   scenario 'Can sign up as a user' do
-    visit '/'
+    visit '/users'
     click_link 'Enter'
     within('div#signup_modal') do
       fill_in "Name", with: "Jane Doe"
