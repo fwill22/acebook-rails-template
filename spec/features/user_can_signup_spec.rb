@@ -3,11 +3,11 @@ require 'rails_helper'
 RSpec.feature "Registration", type: :feature do
   scenario 'Can sign up as a user' do
     visit '/users'
-    click_link 'Enter'
-    within('div#signup_modal') do
+    click_button 'Log in / Register'
+    within('div#signup') do
       fill_in "Name", with: "Jane Doe"
       fill_in "Email", with: "jdoe@email.com"
-      fill_in "DOB", with: "1992-01-01" 
+      fill_in "Date of Birth", with: "1992-01-01" 
       fill_in "Password", with: "password"
       fill_in "Password Confirmation", with: "password"
       click_button "Create Account"

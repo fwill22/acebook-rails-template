@@ -10,41 +10,39 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require rails-ujs
 //= require jquery3
-//= require jquery_ujs
 //= require_tree .
 
-  // document.addEventListener("DOMContentLoaded", function(){
+  // --------------- Dark Mode ----------------
 
-  //   function classToggle() {
-  //     this.classList.toggle('tab1');
-  //     this.classList.toggle('tab2');
-  //   }
+  document.addEventListener("DOMContentLoaded", () => {
 
-  //   document.querySelector('#form_tabs').addEventListener('click', classToggle);
+    let toggleSwitch = document.querySelector(".toggle-input")
+    let myLocalStorage = window.localStorage
+    let userSwitch = toggleSwitch.unchecked
+    let userColourMode = myLocalStorage.getItem("class")
 
-  //   document.querySelector('.input').blur(function () {
-  //     let input = document.querySelector(this)
-  //     if (input.value) {
-  //       input.classList.add('used')
-  //     } else {
-  //       input.removeClass('used')
-  //     }
-  //   })
-
-  //   document.getElementById("tab1").addEventListener('click', function(){
-  //     document.getElementById("tab1").classList.add("login-shadow")
-  //     document.getElementById("tab2").classList.remove("signup-shadow")
-  //   })
-
-  //   document.getElementById("tab2").addEventListener("click", function(){
-  //     document.getElementById("tab2").classList.add("signup-shadow")
-  //     document.getElementById("tab1").classList.remove("login-shadow")
-  //   })
-
+    document.documentElement.setAttribute("class", userColourMode)
     
-  // })
+    if (userColourMode === "dark") {
+      userSwitch != true
+    }
 
+    toggleSwitch.addEventListener("change", () => {
+      if (toggleSwitch.checked === true) {
+        document.documentElement.setAttribute("class", "dark")
+        myLocalStorage.setItem("class", "dark")
+      } else {
+        document.documentElement.setAttribute("class", "light")
+        myLocalStorage.setItem("class", "light")
+      } 
+
+    })
+  })
+
+
+  // --------------- jQuery for log in/register modal -------------
   $(window, document, undefined).ready(function() {
 
     $('.input').blur(function() {
