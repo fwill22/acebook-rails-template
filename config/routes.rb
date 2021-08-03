@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :rooms
 
   get 'rooms/index'
+  post 'rooms/index'
   get 'sessions/new'
   get 'sessions/show'
   get 'sessions/create'

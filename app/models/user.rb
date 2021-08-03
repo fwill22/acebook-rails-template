@@ -3,7 +3,7 @@ class User < ApplicationRecord
   attr_accessor :remember_token
 
   before_save { |user| user.email = email.downcase }
-  # before_save :create_remember_token
+  before_save :create_remember_token
   has_one_attached :avatar
   has_many :posts
   # has_many :comments
