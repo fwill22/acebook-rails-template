@@ -18,30 +18,52 @@
 
   document.addEventListener("DOMContentLoaded", () => {
 
-    let toggleSwitch = document.querySelector(".toggle-input")
-    let myLocalStorage = window.localStorage
-    let userSwitch = toggleSwitch.unchecked
-    let userColourMode = myLocalStorage.getItem("class")
+  //   let toggleSwitch = document.querySelector(".toggle-input")
+  //   let myLocalStorage = window.localStorage
+  //   let userSwitch = toggleSwitch.unchecked
+  //   let userColourMode = myLocalStorage.getItem("class")
 
-    document.documentElement.setAttribute("class", userColourMode)
     
-    if (userColourMode === "dark") {
-      userSwitch != true
-    }
 
-    toggleSwitch.addEventListener("change", () => {
-      if (toggleSwitch.checked === true) {
-        document.documentElement.setAttribute("class", "dark")
-        myLocalStorage.setItem("class", "dark")
-      } else {
-        document.documentElement.setAttribute("class", "light")
-        myLocalStorage.setItem("class", "light")
-      } 
+  //   document.documentElement.setAttribute("class", userColourMode)
+    
+  //   if (userColourMode === "dark") {
+  //     userSwitch != true
+  //   }
 
+  //   toggleSwitch.addEventListener("change", () => {
+  //     if (toggleSwitch.checked === true) {
+  //       document.documentElement.setAttribute("class", "dark")
+  //       myLocalStorage.setItem("class", "dark")
+  //       logoMode()
+  //     } else {
+  //       document.documentElement.setAttribute("class", "light")
+  //       myLocalStorage.setItem("class", "light")
+  //     } 
+
+  //   })
+  //   function toggleLogo() {
+  //     document.getElementByClassName(".icon-wrap").classList.toggle("active");
+  //     document.getElementByClassName(".bar").classList.toggle("dark");
+  //   };
+  //   function logoMode() { document.getElementByClassName("mask").onClick( toggleLogo()
+  //   )}
+    
+    let icon = document.getElementsByClassName("mask")
+    let iconChange = icon.getElementByClassName("icon-wrap")
+    let barChange = icon.getElementByClassName("body, .bar")
+
+    document.addEventListener("click", function() {
+      iconChange.classList.toggle("active")
+      barChange.classList.toggle("dark")
     })
-  })
+   })
 
-
+  // ------JQuery for dark mode feature ---------
+  //  $( ".mask" ).click(function() {
+  //   $( ".icon-wrap" ).toggleClass('active');
+  //   $('body, .bar').toggleClass('dark');
+  // });
   // --------------- jQuery for log in/register modal -------------
   $(window, document, undefined).ready(function() {
 
