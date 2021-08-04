@@ -3,6 +3,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
+<%= javascript_tag "window._token = '#{form_authenticity_token}'" %>
+
 <h1> WELCOME TO ACEBOOK </h1>
 <div>
 <% flash.each do |type, msg| %>
@@ -82,59 +84,59 @@
 
         <!--- Sign up form --->
         <div class="tab-pane fade" id="signup">
-          <%= form_with model: @user, class: "form-horizontal" do |user| %>
+         <div class="form-horizontal">
           <fieldset>
           <!-- add falsh message-->
-          <%# <%= render 'shared/error_messages' %> %>
+          <%# <%= render 'shared/error_messages' %> 
             <!-- text input signup-->
             <div class="group">
-              <%= user.label :avatar, 'Upload Photo', class: 'label' %>
-              <%= user.file_field :avatar, class: 'input' %>
+            <input type="file" name="avatar" id="avatarInput" class="input" />
+            <label for="avatar" class="label">Upload Photo</label>
             </div>
 
             <div class="group">
-              <%= user.text_field :name, class: 'input', :required => true %>
+              <input id="nameInput" class="input" name="Name" required/>
               <span class="highlight"></span>
               <span class="bar"></span>
-              <%= user.label :name, 'Name', class: 'label' %>
+              <label for="Name" class="label">Name</label>
             </div>
 
             <div class="group">
-              <%= user.email_field :email, class: 'input', :required => true %>
+             <input id="emailInput" class="input" name="Email" required/>
               <span class="highlight"></span>
               <span class="bar"></span>
-              <%= user.label :email, 'Email', class: 'label' %>
+               <label for="Email" class="label">Email</label>
             </div>
 
             <div class="group">
-              <%= user.date_field :dob, class: 'input', :required => true %>
+            <input id="dobInput" type="date" class="input" name="dob" required/>
               <span class="highlight"></span>
               <span class="bar"></span>
-              <%= user.label :dob, 'Date of Birth', class: 'label' %>
+              <label for="dob" class='label'>Date of Birth</label>
             </div>
 
             <div class="group">
-              <%= user.password_field :password, class: 'input', :required => true %>
+            <input type="password" id ="passwordInput" class="input" required>
               <span class="highlight"></span>
               <span class="bar"></span>
-              <%= user.label :password, 'Password', class: 'label' %>
+              <label for="password" class="label">Password</label>
             </div>
 
             <div class="group">
-              <%= user.password_field :confirm_password, class: 'input', :required => true %>
+            <input type="password" class="input" name="confirm_password" required>
               <span class="highlight"></span>
               <span class="bar"></span>
-              <%= user.label :confirm_password, 'Confirm Password', class: 'label' %>
+              <label for="confirm_password" id ="confirmPassInput" class="label">Confirm Password</label>
             </div>
 
             <div class="control-group">
               <label class="control-label" for="confirmsignup"></label>
               <div class="controls">
-                <%= user.submit "Create Account", id: "confirmsignup", name: "confirmsignup", class: "btn btn-primary btn-block" %>
+                <button id="confirmsignup" name="confirmsignup" class="btn btn-primary btn-block">Create Account</button>
               </div>
             </div>
           </fieldset>
-        <% end %>
+       </div>
       </div>
     </div>
   </div>

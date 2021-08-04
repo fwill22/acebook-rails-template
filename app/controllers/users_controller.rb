@@ -13,9 +13,11 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    body = request.body.read()
+    @user = User.new( :avatar body['avatar'], :name body['name'], :email body['email'], :dob body['dob'], :password body['password'], :confirm_password body['confirm_password'])
     if @user.save
       flash[:success] = "Account Created"
+      render :json => {"success": true}
     else
       flash[:error] = "Please create an account"
       render 'users#index'

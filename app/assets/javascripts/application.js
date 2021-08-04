@@ -14,19 +14,16 @@
 //= require jquery3
 //= require_tree .
 
-  // --------------- Dark Mode ----------------
+// --------------- Dark Mode ----------------
 
-  document.addEventListener("DOMContentLoaded", () => {
-
+document.addEventListener('DOMContentLoaded', () => {
   //   let toggleSwitch = document.querySelector(".toggle-input")
   //   let myLocalStorage = window.localStorage
   //   let userSwitch = toggleSwitch.unchecked
   //   let userColourMode = myLocalStorage.getItem("class")
 
-    
-
   //   document.documentElement.setAttribute("class", userColourMode)
-    
+
   //   if (userColourMode === "dark") {
   //     userSwitch != true
   //   }
@@ -39,7 +36,7 @@
   //     } else {
   //       document.documentElement.setAttribute("class", "light")
   //       myLocalStorage.setItem("class", "light")
-  //     } 
+  //     }
 
   //   })
   //   function toggleLogo() {
@@ -48,44 +45,76 @@
   //   };
   //   function logoMode() { document.getElementByClassName("mask").onClick( toggleLogo()
   //   )}
-    
-    let icon = document.getElementsByClassName("mask")
-    let iconChange = icon.getElementByClassName("icon-wrap")
-    let barChange = icon.getElementByClassName("body, .bar")
 
-    document.addEventListener("click", function() {
-      iconChange.classList.toggle("active")
-      barChange.classList.toggle("dark")
+  let icon = document.getElementsByClassName('mask')
+  let iconChange = icon.getElementByClassName('icon-wrap')
+  let barChange = icon.getElementByClassName('body, .bar')
+
+  document.addEventListener('click', function () {
+    iconChange.classList.toggle('active')
+    barChange.classList.toggle('dark')
+  })
+})
+
+// ------JQuery for dark mode feature ---------
+//  $( ".mask" ).click(function() {
+//   $( ".icon-wrap" ).toggleClass('active');
+//   $('body, .bar').toggleClass('dark');
+// });
+// --------------- jQuery for log in/register modal -------------
+$(window, document, undefined).ready(function () {
+  $('.input').blur(function () {
+    var $this = $(this)
+    if ($this.val()) $this.addClass('used')
+    else $this.removeClass('used')
+  })
+
+  $('#confirmsignup').on('click', async function (e) {
+    e.preventDefault()
+
+    const avatarInput = $('#avatarInput').val()
+    const nameInput = $('#nameInput').val()
+    const emailInput =  $('#emailInput').val()
+    const dobInput = $("#dobInput").val()
+    const passwordInput = $('#passwordInput').val()
+    const confirmPassInput = $('#confirmPassInput').val()
+
+    const response = await fetch('http://localhost:3000/users', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        avatar: avatarInput,
+        name: nameInput,
+        email: emailInput,
+        dob: dobInput,
+        password: passwordInput,
+        confirm_password: confirmPassInput,
+        authenticity_token: window._token
+      }),
     })
-   })
 
-  // ------JQuery for dark mode feature ---------
-  //  $( ".mask" ).click(function() {
-  //   $( ".icon-wrap" ).toggleClass('active');
-  //   $('body, .bar').toggleClass('dark');
-  // });
-  // --------------- jQuery for log in/register modal -------------
-  $(window, document, undefined).ready(function() {
+   const json = await response.json()
 
-    $('.input').blur(function() {
-      var $this = $(this);
-      if ($this.val())
-        $this.addClass('used');
-      else
-        $this.removeClass('used');
-    });
+   if(json.success) {
+     // do something
+     $('#tab1').click();
+   }
+
     
-    });
-  
-  
-  $('#tab1').on('click' , function(){
-      $('#tab1').addClass('login-shadow');
-     $('#tab2').removeClass('signup-shadow');
-  });
-  
-  $('#tab2').on('click' , function(){
-      $('#tab2').addClass('signup-shadow');
-     $('#tab1').removeClass('login-shadow');
-  
-  
-  });
+  })
+})
+
+$('#tab1').on('click', function () {
+  $('#tab1').addClass('login-shadow')
+  $('#tab2').removeClass('signup-shadow')
+  // login
+})
+
+$('#tab2').on('click', function () {
+  $('#tab2').addClass('signup-shadow')
+  $('#tab1').removeClass('login-shadow')
+  // signup
+})
