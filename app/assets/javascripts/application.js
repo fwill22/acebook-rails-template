@@ -19,8 +19,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     let toggleMode = document.querySelector("#toggle-mode-cb")
     let myLocalStorage = window.localStorage
-    let icon = document.querySelector("toggle-indicator")
-
+    let icon = document.querySelector(".toggle-indicator")
     let userColourMode = myLocalStorage.getItem("mode-wrapper")
 
     document.documentElement.setAttribute("mode-wrapper", userColourMode)
@@ -30,16 +29,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     toggleMode.addEventListener("change", () => {
-      if (toggleMode.checked === true) {
-        icon.classList.toggle("active")
-        myLocalStorage.setItem("mode-wrapper", "mode__dark")
-        console.log("set mode to dark")
-      } else {
-        myLocalStorage.setItem("mode-wrapper", "mode__light")
-        console.log("set mode to light")
-      }
+      if (toggleMode.checked === true && icon.classList.contains("active")) {
+          icon.classList.remove("active")
+          myLocalStorage.setItem("mode-wrapper", "mode__light")
+          console.log("set mode to light")
+      } else icon.classList.add("active")
+          myLocalStorage.setItem("mode-wrapper", "mode__dark")
+          console.log("set mode to dark")     
     })
 })
+
+
 
 // ------JQuery for dark mode feature ---------
 //  $( ".mask" ).click(function() {
