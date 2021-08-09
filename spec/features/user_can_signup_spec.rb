@@ -9,7 +9,7 @@ RSpec.feature "Registration", type: :feature do
       fill_in "Email", with: "jdoe@email.com"
       fill_in "Date of Birth", with: "1992-01-01" 
       fill_in "Password", with: "password"
-      fill_in "Password Confirmation", with: "password"
+      fill_in "Confirm Password", with: "password"
       click_button "Create Account"
     end
     expect(page).to have_content("Account Created")

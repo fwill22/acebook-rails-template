@@ -72,7 +72,7 @@ $(window, document, undefined).ready(function () {
   $('#confirmsignup').on('click', async function (e) {
     e.preventDefault()
 
-    const avatarInput = $('#avatarInput').val()
+    // const avatarInput = $('#avatarInput').val()
     const nameInput = $('#nameInput').val()
     const emailInput =  $('#emailInput').val()
     const dobInput = $("#dobInput").val()
@@ -83,25 +83,29 @@ $(window, document, undefined).ready(function () {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'dataType': 'json'
       },
       body: JSON.stringify({
-        avatar: avatarInput,
+        // avatar: avatarInput,
         name: nameInput,
         email: emailInput,
         dob: dobInput,
         password: passwordInput,
-        confirm_password: confirmPassInput,
+        password_confirmation: confirmPassInput,
         authenticity_token: window._token
       }),
     })
+    
 
    const json = await response.json()
-
+     console.log(response.text) 
    if(json.success) {
-     // do something
+    //  do something
+     
      $('#tab1').click();
    }
+   
 
     
   })

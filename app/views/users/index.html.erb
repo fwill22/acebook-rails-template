@@ -87,12 +87,12 @@
          <div class="form-horizontal">
           <fieldset>
           <!-- add falsh message-->
-          <%# <%= render 'shared/error_messages' %> 
+          
             <!-- text input signup-->
-            <div class="group">
+            <%# <div class="group">
             <input type="file" name="avatar" id="avatarInput" class="input" />
             <label for="avatar" class="label">Upload Photo</label>
-            </div>
+            </div> %>
 
             <div class="group">
               <input id="nameInput" class="input" name="Name" required/>
@@ -116,17 +116,17 @@
             </div>
 
             <div class="group">
-            <input type="password" id ="passwordInput" class="input" required>
+            <input type="password" id ="passwordInput" class="input" required />
               <span class="highlight"></span>
               <span class="bar"></span>
               <label for="password" class="label">Password</label>
             </div>
 
             <div class="group">
-            <input type="password" class="input" name="confirm_password" required>
+            <input type="password" class="input"  id ="confirmPassInput" name="password_confirmation" required />
               <span class="highlight"></span>
               <span class="bar"></span>
-              <label for="confirm_password" id ="confirmPassInput" class="label">Confirm Password</label>
+              <label for="password_confirmation" class="label">Confirm Password</label>
             </div>
 
             <div class="control-group">

@@ -16,7 +16,7 @@ class User < ApplicationRecord
   uniqueness: { case_sensitive: false }
 
   has_secure_password
-  validates :confirm_password, presence: true, length: { minimum: 6 }, allow_nil: true
+  validates :password_confirmation, presence: true, length: { minimum: 6 }, allow_nil: true
 
   # DEFAULT_AVATAR = "default_avatar.png" -- ADD IMAGE FILE TO ASSETS FOLDER
 
