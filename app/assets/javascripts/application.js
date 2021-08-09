@@ -94,6 +94,7 @@ $(window, document, undefined).ready(function () {
         password: passwordInput,
         password_confirmation: confirmPassInput,
         authenticity_token: window._token
+        
       }),
     })
     
