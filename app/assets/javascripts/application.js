@@ -32,14 +32,17 @@ document.addEventListener('DOMContentLoaded', () => {
       if (toggleMode.checked === true /* && icon.classList.contains("active")*/ ) {
           // icon.classList.remove("active")
           console.log("before set to light", myLocalStorage)
+          myLocalStorage.setItem("class", "light")
           myLocalStorage.setItem("mode-wrapper", "mode__light")
           console.log("set mode to light")
           console.log("after set to light", myLocalStorage)
-      } else // icon.classList.add("active")
+      } else if (toggleMode.checked !== true) {// icon.classList.add("active")
           console.log("before set", myLocalStorage)
+          myLocalStorage.setItem("class", "dark")
           myLocalStorage.setItem("mode-wrapper", "mode__dark")
           console.log("set mode to dark")     
           console.log("after set", myLocalStorage)
+      }
     })
 })
 
