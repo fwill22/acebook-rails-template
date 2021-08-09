@@ -19,12 +19,10 @@ class UsersController < ApplicationController
     p @user
     if @user.save
       flash[:success] = "Account Created"
-      render :json => {"success": true}
-      
-      render '/users'
+      render :json => {"success": true} and return
     else
-      flash[:error] = "Please create an account"
-      render '/users'
+      # flash[:error] = "Please create an account"
+      render :json => {"error": "Please create an account" }
     end
   end
 
