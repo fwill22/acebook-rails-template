@@ -82,18 +82,26 @@ $(window, document, undefined).ready(function () {
 
       }),
     })
+// DEBUGGING: viewing the params
+    let stringified = JSON.stringify(response);
+    let parsedObj = JSON.parse(stringified);
+ 
+    console.log(parsedObj);
     
 
+// render json response (create user action)
    const json = await response.json()
-     console.log(response.text) 
+    //  console.log(response.text) 
    if(json.success) {
     //  do something
-     
      $('#tab1').click();
-   }
-   
 
-    
+   } /* else {
+    // render: { 
+      // error: "Please create an account"
+    } 
+  }*/
+   
   })
 })
 
