@@ -1,13 +1,8 @@
 # AceBook
 
-REQUIRED INSTRUCTIONS:
-
-1. Fork this repository to `acebook-teamname` and customize
-the below**
-
 [You can find the engineering project outline here.](https://github.com/makersacademy/course/tree/master/engineering_projects/rails)
 
-2. The card wall is here: <please update>
+2. The card wall is here: [trello](https://trello.com/b/WJga2wsp/acebook)
 
 ## How to contribute to this project
 See [CONTRIBUTING.md](CONTRIBUTING.md)
@@ -102,6 +97,41 @@ Evaluate and implement some of the most popular libraries of code from the commu
 </details>
 
 <p>&nbsp;</p>
+  
+## Features
+  <b> User </b>
+  
+  - [ ] User can sign up
+  - [ ] User can sign in
+  - [ ] User can sign out
+  - [ ] Browser remembers user long term
+  - [ ] User details are securely stored (encrypted)
+  - [ ] User can upload a profile picture
+  - [ ] User can edit personal information in settings
+  - [ ] User can view personal info on a profile page
+ <br>
+  <b> Posts </b>
+  
+  - [ ] User can post updates 
+  - [ ] User can edit their own posts
+  - [ ] User can delete posts
+  - [ ] User can post images 
+  - [ ] User can view all Acebook users' posts on a main feed
+  - [ ] User can view all own posts on profile timeline
+  - [ ] User can post directly on other users' walls
+  - [ ] User can comment on posts
+  - [ ] User can like/unlike posts and comments
+  - [ ] User can respond to posts with emoji reacts 
+  
+ <br>
+  <b> Additional Features </b>
+  
+  - [ ] User can change between dark and light mode (selected mode persists through page refresh)
+  - [ ] User can search for other users
+  - [ ] User can add other users as friends
+  - [ ] User can limit public profile visibility to friends only
+  - [ ] User can instant message other users
+<br>  
 
 ## User Stories
 
