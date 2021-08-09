@@ -19,7 +19,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     let toggleMode = document.querySelector("#toggle-mode-cb")
     let myLocalStorage = window.localStorage
- 
+    let icon = document.querySelector("toggle-indicator")
+
     let userColourMode = myLocalStorage.getItem("mode-wrapper")
 
     document.documentElement.setAttribute("mode-wrapper", userColourMode)
@@ -30,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     toggleMode.addEventListener("change", () => {
       if (toggleMode.checked === true) {
+        icon.classList.toggle("active")
         myLocalStorage.setItem("mode-wrapper", "mode__dark")
         console.log("set mode to dark")
       } else {
