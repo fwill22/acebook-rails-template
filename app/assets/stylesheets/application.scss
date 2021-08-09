@@ -14,287 +14,88 @@
  *= require_self
  */
 
-/* The switch - the box around the slider */
-// .light {
-//   background-color: #c6eef5;
-//   color: #ee834e;
-//   font-family: helvetica, sans-serif; 
-//   text-align: left;
-// }
-    
-// .dark {
-//   background-color: #1F2833;
-//   color: #a1bee4;
-//   font-family: helvetica, sans-serif; 
-//   text-align: left;
-// }
-
-// .wrapper {
-//   padding-top: 40px;
-//   text-align: center;
-// }
-
-// /*/////////////////////////////////////////////////
-// // Mixins
-// ///////////////////////////////////////////////// */
-
-// @mixin crater($top, $left, $size) {
-//   content: "";
-//   position: absolute;
-//   top: $top;
-//   left: $left;
-//   width: $size;
-//   height: $size;
-//   background-color: #efeeda;
-//   border-radius: 100%;
-//   border: 4px solid #dee1c5;
-// }
-
-// @mixin cloudBubble($top, $right, $width, $height, $deg) {
-//   content: "";
-//   display: block;
-//   position: relative;
-//   top: $top;
-//   right: $right;
-//   width: $width;
-//   height: $height;
-//   border: 8px solid #d4d4d2;
-//   border-radius: 100%;
-//   border-right-color: transparent;
-//   border-bottom-color: transparent;
-//   transform: rotateZ($deg);
-//   background-color: #fff;
-// }
-
-// /*////////////////////////////////////////////////
-// // Day State
-// ////////////////////////////////////////////////*/
-// .toggle {
-//   position: fixed;
-//   display: inline-block;
-//   width: 100px;
-//   margin-left: 35px;
-//   padding: 4px;
-//   border-radius: 40px;
-// }
-
-// .toggle:before,
-// .toggle:after {
-//   content: "";
-//   display: table;
-// }
-
-// .toggle:after {
-//   clear: both;
-// }
-
-// .toggle-bg {
-//   position: absolute;
-//   top: -4px;
-//   left: -4px;
-//   width: 100%;
-//   height: 100%;
-//   background-color: #c0e6f6;
-//   border-radius: 40px;
-//   border: 4px solid #81c0d5;
-//   transition: all 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-// }
-
-// .toggle-input {
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100%;
-//   border: 1px solid red;
-//   border-radius: 40px;
-//   z-index: 2;
-//   opacity: 0;
-// }
-
-// .toggle-switch {
-//   position: relative;
-//   width: 40px;
-//   height: 40px;
-//   margin-left: 50px;
-//   background-color: #f5eb42;
-//   border: 4px solid #e4c74d;
-//   border-radius: 50%;
-//   transition: all 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-// }
-
-// .toggle-switch-figure {
-//   position: absolute;
-//   bottom: -14px;
-//   left: -50px;
-//   display: block;
-//   width: 80px;
-//   height: 30px;
-//   border: 8px solid #d4d4d2;
-//   border-radius: 20px;
-//   background-color: #fff;
-//   transform: scale(0.4);
-//   transition: all 0.12s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-//     &:after {
-//     @include cloudBubble(-65px, -42px, 15px, 15px, 70deg);
-//     }
-//     &:before {
-//     @include cloudBubble(-25px, -10px, 30px, 30px, 30deg);
-//     }
-// }
-
-// .toggle-switch-figureAlt {
-//   @include crater(5px, 2px, 2px);
-
-//   box-shadow: 42px -7px 0 -3px #fcfcfc, 75px -10px 0 -3px #fcfcfc,
-//     54px 4px 0 -4px #fcfcfc, 83px 7px 0 -2px #fcfcfc, 63px 18px 0 -4px #fcfcfc,
-//     44px 28px 0 -2px #fcfcfc, 78px 23px 0 -3px #fcfcfc;
-
-//   transition: all 0.12s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-//   transform: scale(0);
-// }
-
-// .toggle-switch-figureAlt:before {
-//   @include crater(-6px, 18px, 7px);
-// }
-
-// .toggle-switch-figureAlt:after {
-//   @include crater(19px, 15px, 2px);
-// }
-
-// /*////////////////////////////////////////////////
-// // Night State
-// ////////////////////////////////////////////////*/
-// .toggle-input:checked ~ .toggle-switch {
-//   margin-left: 0;
-//   border-color: #dee1c5;
-//   background-color: #fffdf2;
-// }
-
-// .toggle-input:checked ~ .toggle-bg {
-//   background-color: #484848;
-//   border-color: #202020;
-// }
-
-// .toggle-input:checked ~ .toggle-switch .toggle-switch-figure {
-//   margin-left: 40px;
-//   opacity: 0;
-//   transform: scale(0.1);
-// }
-
-// .toggle-input:checked ~ .toggle-switch .toggle-switch-figureAlt {
-//   transform: scale(1);
-// }
-
-/* new css for dark/light mode */
-@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic|Nanum+Myeongjo');
-$heading: 'Nanum Myeongjo', serif;
-$body: 'Nanum Gothic', sans-serif;
-
-$size: 60px;
-$width: 768px;
-$dark: #161D26;
-$dark-ui: #283445;
-$light-ui: #fff;
-
-body {
-	transition: all 300ms ease;
-	
-	&.dark {
-		background-color: $dark;
-	}
+ #toggle-mode-cb {
+  display: none;
 }
 
-.toggle {
-	position: fixed;
-	top: 20%; left: 0;
-	width: $size;
-	
-	.mask {
-		width: $size; height: $size;
-		overflow: hidden;
-		
-		.icon-wrap {
-			padding: $size/4;
-			transition: all 300ms 400ms ease;
-			
-			&:last-child {
-				transform: translatey(-$size);
-			}
-		}
-		
-		.icon {
-			width: $size/2; height: $size/2;
-			border-radius: 50%;
-		}
-		
-		.active {
-			transition-delay: 100ms;
-			
-			&:first-child {
-				transform: translatey($size);
-			}
-			
-			&:last-child {
-				transform: translatey(0);
-			}
-		}
-		
-		.sun {
-			background-color: $light-ui;
-		}
-		
-		.moon {
-			background-color: $dark-ui;
-		}
-	}
-	
-	.bar {
-		width: 40%; height: 5px;
-		margin: 0 auto;
-		background-color: $dark-ui;
-		transition: all 300ms 100ms ease;
-		
-		&.dark {
-			background-color: $light-ui;
-		}
-	}
+#toggle-mode {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 20px;
+}
+#toggle-mode .toggle-border {
+  border: 1px solid #1e1f26;
+  width: 50px;
+  height: 20px;
+  display: block;
+  border-radius: 20px;
+  position: relative;
+}
+#toggle-mode .toggle-indicator {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  position: absolute;
+  background-color: #1e1f26;
+  top: 1px;
+  left: 2px;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+#toggle-mode .toggle-indicator::after {
+  content: "";
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -2px;
+  right: 5px;
+  background-color: #1e1f26;
 }
 
-.page-content {
-	max-width: $width + $size * 2;
-	margin: $size auto;
-	padding: $size;
-	
-	h1, p {
-		transition: all 300ms ease; 
-	}
-	
-	h1 {
-		font-family: $heading;
-		padding: 45px 0;
-		font-size: 3.5em;
-	}
-	
-	p {
-		font-family: $body;
-		padding: 0 0 30px 0;
-		font-size: 1em;
-		line-height: 2em;
-	}
-	
-	.hero {
-		width: 100%; height: 550px;
-		background-image: url('https://images.unsplash.com/photo-1520545221203-f6ca6a8e3252?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=c31c8f886e5b75e9eb1a12c180c1f0ff');
-		background-size: cover;
-	}
+#mode-wrapper {
+  transition: all 0.3s ease-in-out;
+  height: 100vh;
+  position: relative;
+  font-family: sans-serif;
+  font-size: 2rem;
+}
+#mode-wrapper .mode {
+  transition: all 0.3s ease-in-out;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.dark {
-	.hero {
-	background-image: url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=3cb3ba03a83bbf2690315283e9cd4115');
-	}
-	h1, p {
-		color: $light-ui;
-	}
+#mode-wrapper {
+  background-color: white;
+  color: #1e1f26;
+}
+#mode-wrapper .mode__light {
+  opacity: 1;
+}
+#mode-wrapper .mode__dark {
+  opacity: 0;
+}
+
+#toggle-mode-cb:checked + #mode-wrapper {
+  background-color: #1e1f26;
+  color: gray;
+}
+#toggle-mode-cb:checked + #mode-wrapper .mode__light {
+  opacity: 0;
+}
+#toggle-mode-cb:checked + #mode-wrapper .mode__dark {
+  opacity: 1;
+}
+#toggle-mode-cb:checked + #mode-wrapper .toggle-border {
+  border-color: white;
+}
+#toggle-mode-cb:checked + #mode-wrapper .toggle-indicator {
+  background-color: white;
+  left: calc( 50px - 18px );
+  transform: rotate(180deg);
 }

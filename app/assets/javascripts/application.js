@@ -14,46 +14,29 @@
 //= require jquery3
 //= require_tree .
 
-// --------------- Dark Mode ----------------
+// --------------- Dark Mode for storing the mode users currently set ----------------
 
 document.addEventListener('DOMContentLoaded', () => {
-  //   let toggleSwitch = document.querySelector(".toggle-input")
-  //   let myLocalStorage = window.localStorage
-  //   let userSwitch = toggleSwitch.unchecked
-  //   let userColourMode = myLocalStorage.getItem("class")
+    let toggleMode = document.querySelector("#toggle-mode-cb")
+    let myLocalStorage = window.localStorage
+ 
+    let userColourMode = myLocalStorage.getItem("mode-wrapper")
 
-  //   document.documentElement.setAttribute("class", userColourMode)
+    document.documentElement.setAttribute("mode-wrapper", userColourMode)
 
-  //   if (userColourMode === "dark") {
-  //     userSwitch != true
-  //   }
+    if (userColourMode === "mode__dark") {
+      toggleMode.checked = true
+    }
 
-  //   toggleSwitch.addEventListener("change", () => {
-  //     if (toggleSwitch.checked === true) {
-  //       document.documentElement.setAttribute("class", "dark")
-  //       myLocalStorage.setItem("class", "dark")
-  //       logoMode()
-  //     } else {
-  //       document.documentElement.setAttribute("class", "light")
-  //       myLocalStorage.setItem("class", "light")
-  //     }
-
-  //   })
-  //   function toggleLogo() {
-  //     document.getElementByClassName(".icon-wrap").classList.toggle("active");
-  //     document.getElementByClassName(".bar").classList.toggle("dark");
-  //   };
-  //   function logoMode() { document.getElementByClassName("mask").onClick( toggleLogo()
-  //   )}
-
-  let icon = document.getElementsByClassName('mask')
-  let iconChange = icon.getElementByClassName('icon-wrap')
-  let barChange = icon.getElementByClassName('body, .bar')
-
-  document.addEventListener('click', function () {
-    iconChange.classList.toggle('active')
-    barChange.classList.toggle('dark')
-  })
+    toggleMode.addEventListener("change", () => {
+      if (toggleMode.checked === true) {
+        myLocalStorage.setItem("mode-wrapper", "mode__dark")
+        console.log("set mode to dark")
+      } else {
+        myLocalStorage.setItem("mode-wrapper", "mode__light")
+        console.log("set mode to light")
+      }
+    })
 })
 
 // ------JQuery for dark mode feature ---------
@@ -61,6 +44,8 @@ document.addEventListener('DOMContentLoaded', () => {
 //   $( ".icon-wrap" ).toggleClass('active');
 //   $('body, .bar').toggleClass('dark');
 // });
+
+
 // --------------- jQuery for log in/register modal -------------
 $(window, document, undefined).ready(function () {
   $('.input').blur(function () {
@@ -94,7 +79,7 @@ $(window, document, undefined).ready(function () {
         password: passwordInput,
         password_confirmation: confirmPassInput,
         authenticity_token: window._token
-        
+
       }),
     })
     
