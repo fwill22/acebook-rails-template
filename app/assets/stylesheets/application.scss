@@ -26,6 +26,7 @@
 	
 }
 
+// toggle in light mode/ default 
 #toggle-mode .toggle-indicator {
   width: 16px;
   height: 16px;
@@ -43,6 +44,9 @@
   box-shadow: inset 16px 0px #777, inset 16px 0px 1px 2px #777;
   -moz-box-shadow: inset 16px 0px #777, inset 16px 0px 1px 2px #777;
 }
+
+
+// toggle in light mode after click
 #toggle-mode .toggle-indicator::after {
   content: "";
   width: 14px;
@@ -55,6 +59,8 @@
 	transform: translatey(60px);
 	
 }
+
+// toggle in dark mode 
 #toggle-mode .toggle-indicator .active::after {
   content: "";
   width: 14px;
