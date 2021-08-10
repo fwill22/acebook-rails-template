@@ -105,7 +105,7 @@
   opacity: 1;
 }
 
-#toggle-mode-cb:checked + #mode-wrapper .toggle-indicator .active{
+#toggle-mode-cb:checked + #mode-wrapper .toggle-indicator {
   transform: translatey(-60px);
 	background-color: white;
 	width: 50px;
@@ -115,7 +115,7 @@
   -moz-box-shadow: inset 16px 0px white, inset 16px 0px 1px 2px white;
 }
 
-#toggle-mode-cb:checked + #mode-wrapper .toggle-indicator {
+#toggle-mode-cb:checked + #mode-wrapper .toggle-indicator .active {
   transform: translatey(60px);
 	background-color: white;
 	width: 50px;
