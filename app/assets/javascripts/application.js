@@ -17,43 +17,30 @@
 // --------------- Dark Mode for storing the mode users currently set ----------------
 
 document.addEventListener('DOMContentLoaded', () => {
-    // let toggleMode = document.querySelector(".mask")
-    // let myLocalStorage = window.localStorage
-    // let sun = document.querySelector(".dark")
-    // let moon = document.querySelector(".light")
-    // let userColourMode = myLocalStorage.getItem("toggle")
+  let toggleMode = document.querySelector(".mask")
+  let myLocalStorage = window.localStorage
+  let sun = document.querySelector(".icon-wrap")
+  let moon = document.querySelector(".icon-wrap-moon")
+  let body = document.querySelector('body')
+  let bar = document.querySelector('.bar')
+  let userColourMode = myLocalStorage.getItem("class")
 
-    // document.documentElement.setAttribute("toggle", userColourMode)
-
-    // toggleMode.addEventListener("click", () => {
-    //   if (sun.classList.contains("active")) {
-    //       icon.classList.remove("active")
-    //       console.log("before set to light", myLocalStorage)
-    //       myLocalStorage.setItem("class", "light")
-    //       console.log("set mode to light")
-    //       console.log("after set to light", myLocalStorage)
-    //   } else {
-    //       moon.classList.remove("active")
-    //       console.log("before set", myLocalStorage)
-    //       myLocalStorage.setItem("class", "dark")
-    //       console.log("set mode to dark")     
-    //       console.log("after set", myLocalStorage)
-    //   }
-    // })
-
-    document.querySelector('.mask').addEventListener('click', ()=>{
-      document.querySelector('.icon-wrap').classList.toggle('active')
-      document.querySelector('.icon-wrap-moon').classList.toggle('active')
-      document.querySelector('body').classList.toggle('dark')
-      document.querySelector('.bar').classList.toggle('dark')
-    })
+  document.documentElement.setAttribute("class", userColourMode)
+    if (moon.classList === "active"){
+            userColorMode = "dark"
+    } 
+  toggleMode.addEventListener("click", () => {
+    sun.classList.toggle('active')
+    moon.classList.toggle('active')
+    body.classList.toggle('dark')
+    bar.classList.toggle('dark')
+    if (sun.classList.contains("active")) {
+        myLocalStorage.setItem("class", "light")
+    } else {
+        myLocalStorage.setItem("class", "dark")
+    }
+  })
 })
-
-
-
-
-
-
 
 // --------------- jQuery for log in/register modal -------------
 $(window, document, undefined).ready(function () {
