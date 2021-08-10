@@ -17,35 +17,41 @@
 // --------------- Dark Mode for storing the mode users currently set ----------------
 
 document.addEventListener('DOMContentLoaded', () => {
-    let toggleMode = document.querySelector("#toggle-mode-cb")
-    let myLocalStorage = window.localStorage
-    let icon = document.querySelector(".toggle-indicator")
-    let userColourMode = myLocalStorage.getItem("mode-wrapper")
+    // let toggleMode = document.querySelector(".mask")
+    // let myLocalStorage = window.localStorage
+    // let sun = document.querySelector(".dark")
+    // let moon = document.querySelector(".light")
+    // let userColourMode = myLocalStorage.getItem("toggle")
 
-    document.documentElement.setAttribute("mode-wrapper", userColourMode)
+    // document.documentElement.setAttribute("toggle", userColourMode)
 
-    if (userColourMode === "mode__dark") {
-      toggleMode.checked = true
-    }
+    // toggleMode.addEventListener("click", () => {
+    //   if (sun.classList.contains("active")) {
+    //       icon.classList.remove("active")
+    //       console.log("before set to light", myLocalStorage)
+    //       myLocalStorage.setItem("class", "light")
+    //       console.log("set mode to light")
+    //       console.log("after set to light", myLocalStorage)
+    //   } else {
+    //       moon.classList.remove("active")
+    //       console.log("before set", myLocalStorage)
+    //       myLocalStorage.setItem("class", "dark")
+    //       console.log("set mode to dark")     
+    //       console.log("after set", myLocalStorage)
+    //   }
+    // })
 
-    toggleMode.addEventListener("change", () => {
-      if (toggleMode.checked === true && icon.classList.contains("active")) {
-          icon.classList.remove("active")
-          console.log("before set to light", myLocalStorage)
-          myLocalStorage.setItem("class", "light")
-          myLocalStorage.setItem("mode-wrapper", "mode__light")
-          console.log("set mode to light")
-          console.log("after set to light", myLocalStorage)
-      } else if (toggleMode.checked !== true) {
-          icon.classList.add("active")
-          console.log("before set", myLocalStorage)
-          myLocalStorage.setItem("class", "dark")
-          myLocalStorage.setItem("mode-wrapper", "mode__dark")
-          console.log("set mode to dark")     
-          console.log("after set", myLocalStorage)
-      }
+    document.querySelector('.mask').addEventListener('click', ()=>{
+      document.querySelector('.icon-wrap').classList.toggle('active')
+      document.querySelector('.icon-wrap-moon').classList.toggle('active')
+      document.querySelector('body').classList.toggle('dark')
+      document.querySelector('.bar').classList.toggle('dark')
     })
 })
+
+
+
+
 
 
 
