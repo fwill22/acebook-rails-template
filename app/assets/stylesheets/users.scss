@@ -158,16 +158,16 @@ box-shadow: -5px 0px 6px 0px rgba(82,82,82,0.52);
   
   #forgot-password .modal-dialog{width:500px;}
   
-  .modal-body{padding-left:50px;
-              padding-right:50px;}
+  .modal-body{
+		padding-left:50px;
+  	padding-right:50px;}
 }
 
 
 .modal-body{
-  background-color: #2E6171;
-  // background-image:url('http://res.cloudinary.com/rinma/image/upload/v1500489833/Airplane-flying-desktop-pictureproba2_rlcced.jpg');
-background-size:cover;
-z-index:4;}
+  background-color: #93C0A4;
+	background-size:cover;
+	z-index:4;}
 
 em{display:none;}
 
